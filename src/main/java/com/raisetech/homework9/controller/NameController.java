@@ -40,11 +40,11 @@ public class NameController {
   }
 
   @PostMapping
-  public ResponseEntity<String> CreateName(@RequestBody @Validated CreateForm form,
+  public ResponseEntity<Map<String, String>> CreateName(@RequestBody @Validated CreateForm form,
       UriComponentsBuilder builder) {
 
     // 登録処理
-    Name name = NameService.createName(form);
+    Name name = nameService.createName(form);
     URI url = builder.path("/names/" + name.getId()) // id部分は実際に登録された際に発⾏したidを設定する
         .build().toUri();
 
