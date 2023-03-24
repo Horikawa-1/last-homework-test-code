@@ -1,20 +1,16 @@
 package com.raisetech.homework9.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
+@Getter
+@Setter
 public class Name {
 
   private int id;
   private String name;
 
-  public Name(Integer id, String name) {
-    this.id = id;
-    this.name = name;
-  }
 
-  public int getId() {
-    return id;
-  }
-
-  public String getName() {
-    return name;
-  }
 }

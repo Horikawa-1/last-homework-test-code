@@ -8,16 +8,14 @@ import com.raisetech.homework9.mapper.NameMapper;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class NameServiceImpl implements NameService {
 
   private final NameMapper nameMapper;
-
-  public NameServiceImpl(NameMapper nameMapper) {
-    this.nameMapper = nameMapper;
-  }
 
   @Override
   public List<Name> findAll() {
@@ -32,7 +30,7 @@ public class NameServiceImpl implements NameService {
 
   @Override
   public Name createName(CreateForm form) {
-    Name name = new Name(null, form.getName());
+    Name name = new Name(form.getId(), form.getName());
     nameMapper.insertName(name);
 
     return name;

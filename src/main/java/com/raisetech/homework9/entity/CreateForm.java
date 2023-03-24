@@ -1,27 +1,27 @@
 package com.raisetech.homework9.entity;
 
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
 
-
+@AllArgsConstructor
+@Getter
+@Setter
 public class CreateForm {
 
-
-  public CreateForm(String name, int id) {
-    this.name = name;
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
+  public CreateForm() {
   }
 
   @NotBlank
   @Length(max = 20)
-  private final String name;
+  private String name;
 
-  @Positive//数値が正でないとエラー
-  private final int id;
+  @Positive     //数値が正でないとエラー
+  private int id;
 }
