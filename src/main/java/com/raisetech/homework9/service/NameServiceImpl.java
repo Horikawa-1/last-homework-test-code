@@ -3,7 +3,7 @@ package com.raisetech.homework9.service;
 import com.raisetech.homework9.entity.CreateForm;
 import com.raisetech.homework9.entity.Name;
 import com.raisetech.homework9.entity.UpdateForm;
-import com.raisetech.homework9.exception.NameNotFoundException;
+import com.raisetech.homework9.exception.ResourceNotFoundException;
 import com.raisetech.homework9.mapper.NameMapper;
 import java.util.List;
 import java.util.Objects;
@@ -25,11 +25,11 @@ public class NameServiceImpl implements NameService {
   @Override
   public Name findById(int id) {
     return nameMapper.findById(id)
-        .orElseThrow(() -> new NameNotFoundException("ID:" + id + " Not Found"));
+        .orElseThrow(() -> new ResourceNotFoundException("ID:" + id + " Not Found"));
   }
 
   @Override
-  public Name createName(CreateForm form) {
+  public Name createUser(CreateForm form) {
     Name name = new Name(form.getId(), form.getName());
     nameMapper.insertName(name);
 
@@ -41,7 +41,7 @@ public class NameServiceImpl implements NameService {
 
     //指定されたidが存在しない場合ResourceNotFoundExceptionを投げる
     Optional<Name> user = nameMapper.findById(id);
-    user.orElseThrow(() -> new NameNotFoundException("resource not found"));
+    user.orElseThrow(() -> new ResourceNotFoundException("resource not found"));
 
     //formの各要素がnullでない場合は更新処理を行う
     if (Objects.nonNull(form.getName())) {
@@ -50,11 +50,11 @@ public class NameServiceImpl implements NameService {
   }
 
   @Override
-  public void deleteName(int id) {
+  public void deleteUser(int id) {
 
     //指定されたidが存在しない場合ResourceNotFoundExceptionを投げる
     Optional<Name> user = nameMapper.findById(id);
-    user.orElseThrow(() -> new NameNotFoundException("resource not found"));
+    user.orElseThrow(() -> new ResourceNotFoundException("resource not found"));
 
     nameMapper.deleteName(id);
   }

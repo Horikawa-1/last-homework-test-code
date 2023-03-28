@@ -1,14 +1,14 @@
-DROP TABLE IF EXISTS names;
+drop table IF EXISTS names;
 
-CREATE TABLE names (
+create TABLE names (
  id int unsigned AUTO_INCREMENT,
  name VARCHAR(20) NOT NULL,
  PRIMARY KEY(id)
 );
 
 
-INSERT INTO names (name) VALUES ("masanori");
-INSERT INTO names (name) VALUES ("takashi");
-INSERT INTO names (name) VALUES ("nishimura");
-INSERT INTO names (name) VALUES ("kotouge");
-INSERT INTO names (name) VALUES ("zakoshisyoh");
+insert into names (name) values ("masanori");
+insert into names (name) values ("takashi");
+insert into names (name) values ("nishimura");
+insert into names (name) values ("kotouge");
+insert into names (name) values ("zakoshisyoh");

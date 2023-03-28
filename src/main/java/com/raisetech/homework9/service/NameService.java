@@ -11,9 +11,9 @@ public interface NameService {
 
   Name findById(int id) throws Exception;
 
-  Name createName(CreateForm form);
+  Name createUser(CreateForm form);
 
   void updateName(int id, UpdateForm updateForm);
 
-  void deleteName(int id);
+  void deleteUser(int id);
 }
