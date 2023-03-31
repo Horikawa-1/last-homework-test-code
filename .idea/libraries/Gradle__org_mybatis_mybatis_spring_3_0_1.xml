@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.mybatis:mybatis-spring:3.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/3.0.1/bc614bcf304aabf951125ea5823d768d89a42013/mybatis-spring-3.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/3.0.1/6476d774fb798f57d1c45187f33be5b26081ed3b/mybatis-spring-3.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: it.unibo.tuprolog:parser-jvm:0.20.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/it.unibo.tuprolog/parser-jvm/0.20.2/bf0de985afa248eb2d20afc2e2faed2372ece700/parser-jvm-0.20.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/it.unibo.tuprolog/parser-jvm/0.20.2/71ebbed6d5ce2d40becc14b9d5052f539feae6c/parser-jvm-0.20.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

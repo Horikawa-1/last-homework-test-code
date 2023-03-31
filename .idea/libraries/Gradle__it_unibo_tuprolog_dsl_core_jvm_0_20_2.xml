@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: it.unibo.tuprolog:dsl-core-jvm:0.20.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/it.unibo.tuprolog/dsl-core-jvm/0.20.2/5eb138af0a61ecd039647c98eb6e5949c6cf53b2/dsl-core-jvm-0.20.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/it.unibo.tuprolog/dsl-core-jvm/0.20.2/5cd553be4420cea79edf1f69987ddb8f62929d59/dsl-core-jvm-0.20.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

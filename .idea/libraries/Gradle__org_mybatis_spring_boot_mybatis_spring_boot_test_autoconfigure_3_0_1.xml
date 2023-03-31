@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.mybatis.spring.boot:mybatis-spring-boot-test-autoconfigure:3.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis.spring.boot/mybatis-spring-boot-test-autoconfigure/3.0.1/ccf4458017e58c5699933f45133e23f3bda883be/mybatis-spring-boot-test-autoconfigure-3.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis.spring.boot/mybatis-spring-boot-test-autoconfigure/3.0.1/981aee1a530fa74fd91d2641221d66e1787a2985/mybatis-spring-boot-test-autoconfigure-3.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

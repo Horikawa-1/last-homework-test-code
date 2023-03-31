@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.database-rider:rider-spring:1.36.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.database-rider/rider-spring/1.36.0/97f5e8abadb49aa964bf64739a85b51f45a9917b/rider-spring-1.36.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.database-rider/rider-spring/1.36.0/27d67f9d1008e9fb45cbb03bc7ae947ec89a3560/rider-spring-1.36.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: it.unibo.tuprolog:core-jvm:0.20.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/it.unibo.tuprolog/core-jvm/0.20.2/d83368ce565afbb71eaab2ec459490f5e820f49a/core-jvm-0.20.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/it.unibo.tuprolog/core-jvm/0.20.2/b80096a3aa7bb9777cd453a96ad9e4e742b10477/core-jvm-0.20.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
