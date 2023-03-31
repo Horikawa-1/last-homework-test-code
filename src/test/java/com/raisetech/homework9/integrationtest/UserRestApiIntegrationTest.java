@@ -2,6 +2,7 @@ package com.raisetech.homework9.integrationtest;
 
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.spring.api.DBRider;
+import com.raisetech.homework9.mapper.NameMapper;
 import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -23,6 +24,9 @@ public class UserRestApiIntegrationTest {
 
   @Autowired
   MockMvc mockMvc;
+
+  @Autowired
+  NameMapper nameMapper;
 
   @Test
   @DataSet(value = "users.yml")
@@ -46,4 +50,25 @@ public class UserRestApiIntegrationTest {
         " }" +
         "]", response, JSONCompareMode.STRICT);
   }
+
+  @Test
+  @DataSet(value = "datasets/users.yml")
+  @Transactional
+  void 存在しないIDを指定すると404のステータスコードとエラーのレスポンスを返すこと() throws Exception {
+        /*
+        ステータスコード: 404 Not Found
+        レスポンスボディ:
+            {
+                "message": ユーザーが見つからない場合のメッセージ
+            }
+        */
+    mockMvc.perform(MockMvcRequestBuilders.get("/users/{id}", 6))
+        .andExpect(MockMvcResultMatchers.status().isNotFound())
+        .andExpect(MockMvcResultMatchers.content().json("""
+            {
+            "message": "resource not found"
+            }
+            """));
+  }
+
 }
