@@ -4,6 +4,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.spring.api.DBRider;
+import com.raisetech.homework9.entity.User;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @DBRider
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class NameMapperTest {
+class UserMapperTest {
 
   @Autowired
   UserMapper nameMapper;

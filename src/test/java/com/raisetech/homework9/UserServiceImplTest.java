@@ -62,7 +62,7 @@ public class UserServiceImplTest {
   }
 
   @Test
-  public void ユーザーのnameが入力された時に正常にユーザーの登録をすること() throws Exception {
+  public void 新規ユーザーの情報が入力された時に正常にユーザーの登録をすること() throws Exception {
     doNothing().when(userMapper).insertUser(new User(4, "まさのり"));
 
     User actual = userServiceImpl.createUser(new CreateForm("まさのり", 4));
