@@ -22,7 +22,7 @@ public interface UserMapper {     // classではなくinterfaceで定義する
 
   @Options(useGeneratedKeys = true, keyColumn = "id")
   @Insert("INSERT INTO names (name) VALUES (#{name})")
-  void insertName(User name);
+  void insertUser(User name);
 
   @Update("UPDATE names SET name=#{name} WHERE id = #{id}")
   void updateName(int id, String name);

@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
   @Override
   public User createUser(CreateForm form) {
     User name = new User(form.getId(), form.getName());
-    userMapper.insertName(name);
+    userMapper.insertUser(name);
 
     return name;
   }
