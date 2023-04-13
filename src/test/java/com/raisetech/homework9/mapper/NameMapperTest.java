@@ -1,7 +1,6 @@
 package com.raisetech.homework9.mapper;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.spring.api.DBRider;
@@ -17,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 class NameMapperTest {
 
   @Autowired
-  NameMapper nameMapper;
+  UserMapper nameMapper;
 
   @Test
   @DataSet(value = "datasets/users.yml")

@@ -2,7 +2,7 @@ package com.raisetech.homework9.integrationtest;
 
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.spring.api.DBRider;
-import com.raisetech.homework9.mapper.NameMapper;
+import com.raisetech.homework9.mapper.UserMapper;
 import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -26,7 +26,7 @@ public class UserRestApiIntegrationTest {
   MockMvc mockMvc;
 
   @Autowired
-  NameMapper nameMapper;
+  UserMapper nameMapper;
 
   @Test
   @DataSet(value = "users.yml")

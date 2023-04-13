@@ -7,8 +7,6 @@ create TABLE names (
 );
 
 
-insert into names (name) values ("masanori");
-insert into names (name) values ("takashi");
-insert into names (name) values ("nishimura");
-insert into names (name) values ("kotouge");
-insert into names (name) values ("zakoshisyoh");
+insert into names (name) values ("本間");
+insert into names (name) values ("中嶋");
+insert into names (name) values ("伊藤");

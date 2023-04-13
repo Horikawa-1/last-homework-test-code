@@ -1,15 +1,15 @@
 package com.raisetech.homework9.controller;
 
-import com.raisetech.homework9.entity.Name;
+import com.raisetech.homework9.entity.User;
 
 
-public class NameResponse {
+public class UserResponse {
 
   private int id;
   private String name;
 
   // NameからNameResponseに変換できるコンストラクタを⽤意
-  public NameResponse(Name name) {
+  public UserResponse(User name) {
     this.id = name.getId();
     this.name = name.getName();
   }

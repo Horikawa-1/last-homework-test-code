@@ -1,17 +1,17 @@
 package com.raisetech.homework9.service;
 
 import com.raisetech.homework9.entity.CreateForm;
-import com.raisetech.homework9.entity.Name;
+import com.raisetech.homework9.entity.User;
 import com.raisetech.homework9.entity.UpdateForm;
 import java.util.List;
 
-public interface NameService {
+public interface UserService {
 
-  List<Name> findAll();
+  List<User> findAll();
 
-  Name findById(int id) throws Exception;
+  User findById(int id) throws Exception;
 
-  Name createUser(CreateForm form);
+  User createUser(CreateForm form);
 
   void updateName(int id, UpdateForm updateForm);
 

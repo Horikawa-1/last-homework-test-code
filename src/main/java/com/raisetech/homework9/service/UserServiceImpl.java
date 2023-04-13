@@ -1,10 +1,10 @@
 package com.raisetech.homework9.service;
 
 import com.raisetech.homework9.entity.CreateForm;
-import com.raisetech.homework9.entity.Name;
+import com.raisetech.homework9.entity.User;
 import com.raisetech.homework9.entity.UpdateForm;
 import com.raisetech.homework9.exception.ResourceNotFoundException;
-import com.raisetech.homework9.mapper.NameMapper;
+import com.raisetech.homework9.mapper.UserMapper;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,25 +13,25 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class NameServiceImpl implements NameService {
+public class UserServiceImpl implements UserService {
 
-  private final NameMapper nameMapper;
+  private final UserMapper userMapper;
 
   @Override
-  public List<Name> findAll() {
-    return nameMapper.findAll();
+  public List<User> findAll() {
+    return userMapper.findAll();
   }
 
   @Override
-  public Name findById(int id) {
-    return nameMapper.findById(id)
-        .orElseThrow(() -> new ResourceNotFoundException("ID:" + id + " Not Found"));
+  public User findById(int id) {
+    return userMapper.findById(id)
+        .orElseThrow(() -> new ResourceNotFoundException("IDが" + id + "のレコードはありません。"));
   }
 
   @Override
-  public Name createUser(CreateForm form) {
-    Name name = new Name(form.getId(), form.getName());
-    nameMapper.insertName(name);
+  public User createUser(CreateForm form) {
+    User name = new User(form.getId(), form.getName());
+    userMapper.insertName(name);
 
     return name;
   }
@@ -40,12 +40,12 @@ public class NameServiceImpl implements NameService {
   public void updateName(int id, UpdateForm form) {
 
     //指定されたidが存在しない場合ResourceNotFoundExceptionを投げる
-    Optional<Name> user = nameMapper.findById(id);
+    Optional<User> user = userMapper.findById(id);
     user.orElseThrow(() -> new ResourceNotFoundException("resource not found"));
 
     //formの各要素がnullでない場合は更新処理を行う
     if (Objects.nonNull(form.getName())) {
-      nameMapper.updateName(id, form.getName());
+      userMapper.updateName(id, form.getName());
     }
   }
 
@@ -53,9 +53,9 @@ public class NameServiceImpl implements NameService {
   public void deleteUser(int id) {
 
     //指定されたidが存在しない場合ResourceNotFoundExceptionを投げる
-    Optional<Name> user = nameMapper.findById(id);
+    Optional<User> user = userMapper.findById(id);
     user.orElseThrow(() -> new ResourceNotFoundException("resource not found"));
 
-    nameMapper.deleteName(id);
+    userMapper.deleteName(id);
   }
 }

@@ -1,11 +1,11 @@
 package com.raisetech.homework9.controller;
 
 import com.raisetech.homework9.entity.CreateForm;
-import com.raisetech.homework9.entity.Name;
+import com.raisetech.homework9.entity.User;
 import com.raisetech.homework9.entity.UpdateForm;
 import java.net.URI;
 import java.util.List;
-import com.raisetech.homework9.service.NameService;
+import com.raisetech.homework9.service.UserService;
 import java.util.Map;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -19,24 +19,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-@RequestMapping("/names")
+@RequestMapping("/users")
 @RestController
-public class NameController {
+public class UserController {
 
-  private final NameService nameService;
+  private final UserService userService;
 
-  public NameController(NameService nameService) {
-    this.nameService = nameService;
+  public UserController(UserService userService) {
+    this.userService = userService;
   }
 
   @GetMapping
-  public List<NameResponse> getUsers() {
-    return nameService.findAll().stream().map(NameResponse::new).toList();
+  public List<UserResponse> getUsers() {
+    return userService.findAll().stream().map(UserResponse::new).toList();
   }
 
   @GetMapping("/{id}")
-  public NameResponse getUserById(@PathVariable("id") int id) throws Exception {
-    return new NameResponse(nameService.findById(id));
+  public UserResponse getUserById(@PathVariable("id") int id) throws Exception {
+    return new UserResponse(userService.findById(id));
   }
 
   @PostMapping
@@ -44,8 +44,8 @@ public class NameController {
       UriComponentsBuilder builder) {
 
     // 登録処理
-    Name name = nameService.createUser(form);
-    URI url = builder.path("/names/" + name.getId()) // id部分は実際に登録された際に発⾏したidを設定する
+    User name = userService.createUser(form);
+    URI url = builder.path("/users/" + name.getId()) // id部分は実際に登録された際に発⾏したidを設定する
         .build().toUri();
 
     return ResponseEntity.created(url).body(Map.of("message", "user successfully created"));
@@ -56,7 +56,7 @@ public class NameController {
       @Validated @RequestBody UpdateForm updateForm) {
 
     //更新処理
-    nameService.updateName(id, updateForm);
+    userService.updateName(id, updateForm);
 
     return ResponseEntity.ok(Map.of("message", "name successfully updated"));
   }
@@ -65,7 +65,7 @@ public class NameController {
   public ResponseEntity<Map<String, String>> deleteUser(@PathVariable("id") int id) {
 
     // 削除処理
-    nameService.deleteUser(id);
+    userService.deleteUser(id);
 
     return ResponseEntity.ok(Map.of("message", "user successfully deleted"));
   }
