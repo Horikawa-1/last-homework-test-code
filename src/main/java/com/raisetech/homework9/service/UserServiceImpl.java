@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
     //指定されたidが存在しない場合ResourceNotFoundExceptionを投げる
     Optional<User> user = userMapper.findById(id);
-    user.orElseThrow(() -> new ResourceNotFoundException("resource not found"));
+    user.orElseThrow(() -> new ResourceNotFoundException("IDが" + id + "のレコードはありません。"));
 
     //formの各要素がnullでない場合は更新処理を行う
     if (Objects.nonNull(form.getName())) {
@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
 
     //指定されたidが存在しない場合ResourceNotFoundExceptionを投げる
     Optional<User> user = userMapper.findById(id);
-    user.orElseThrow(() -> new ResourceNotFoundException("resource not found"));
+    user.orElseThrow(() -> new ResourceNotFoundException("IDが" + id + "のレコードはありません。"));
 
     userMapper.deleteUser(id);
   }

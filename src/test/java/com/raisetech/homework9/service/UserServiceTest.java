@@ -1,4 +1,4 @@
-package com.raisetech.homework9;
+package com.raisetech.homework9.service;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import com.raisetech.homework9.entity.CreateForm;
 import com.raisetech.homework9.entity.UpdateForm;
@@ -84,9 +85,27 @@ public class UserServiceTest {
   }
 
   @Test
+  public void 更新処理で存在しないIDを指定されたときに例外をthrowすること() {
+    when(userMapper.findById(0)).thenReturn(Optional.empty());
+    userServiceImpl.updateUser(0, new UpdateForm());
+    assertThatThrownBy(() -> userServiceImpl.updateUser(0,new UpdateForm()))
+        .isInstanceOf(ResourceNotFoundException.class)
+        .hasMessage("IDが0のレコードはありません。");
+    verify(userMapper).findById(0);
+  }
+
+  @Test
   public void 存在するidに対応するユーザー情報が正常に削除できていること() {
     doNothing().when(userMapper).deleteUser(1);
     userServiceImpl.deleteUser(1);
     verify(userMapper).deleteUser(1);
+  }
+
+  @Test
+  public void 削除処理で存在しないIDを指定されたときに例外をthrowすること() {
+    doReturn(Optional.empty()).when(userMapper).findById(0);
+    assertThatThrownBy(() -> userServiceImpl.deleteUser(0))
+        .isInstanceOf(ResourceNotFoundException.class)
+        .hasMessage("IDが0のレコードはありません。");
   }
 }
