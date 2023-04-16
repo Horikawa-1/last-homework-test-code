@@ -3,12 +3,12 @@ package com.raisetech.homework9;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.hamcrest.core.IsEqual.equalTo;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
 import com.raisetech.homework9.entity.CreateForm;
+import com.raisetech.homework9.entity.UpdateForm;
 import com.raisetech.homework9.entity.User;
 import com.raisetech.homework9.exception.ResourceNotFoundException;
 import com.raisetech.homework9.mapper.UserMapper;
@@ -22,7 +22,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceImplTest {
+public class UserServiceTest {
 
   @InjectMocks
   UserServiceImpl userServiceImpl;
@@ -65,8 +65,28 @@ public class UserServiceImplTest {
   public void 新規ユーザーの情報が入力された時に正常にユーザーの登録をすること() throws Exception {
     doNothing().when(userMapper).insertUser(new User(4, "まさのり"));
 
-    User actual = userServiceImpl.createUser(new CreateForm("まさのり", 4));
-    assertThat(actual, equalTo(new User(4, "まさのり")));
+    User actual = userServiceImpl.createUser(new CreateForm(4, "まさのり"));
+    assertThat(actual).isEqualTo(new User(4, "まさのり"));
     verify(userMapper).insertUser(new User(4, "まさのり"));
+  }
+
+  @Test
+  public void 存在するidに対応するユーザーのnameが更新できていること() throws Exception {
+    UpdateForm updateForm = new UpdateForm();
+    updateForm.setName("Honma");
+    User user = new User();
+    user.setId(1);
+
+    doNothing().when(userMapper).updateUser(1, "Honma");
+    userServiceImpl.updateUser(1, updateForm);
+    assertThat(user.getName()).isEqualTo("Honma");
+    verify(userMapper).updateUser(1, "Honma");
+  }
+
+  @Test
+  public void 存在するidに対応するユーザー情報が正常に削除できていること() {
+    doNothing().when(userMapper).deleteUser(1);
+    userServiceImpl.deleteUser(1);
+    verify(userMapper).deleteUser(1);
   }
 }

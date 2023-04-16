@@ -52,11 +52,11 @@ public class UserController {
   }
 
   @PatchMapping("/{id}")
-  public ResponseEntity<Map<String, String>> updateName(@PathVariable("id") int id,
+  public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") int id,
       @Validated @RequestBody UpdateForm updateForm) {
 
     //更新処理
-    userService.updateName(id, updateForm);
+    userService.updateUser(id, updateForm);
 
     return ResponseEntity.ok(Map.of("message", "name successfully updated"));
   }

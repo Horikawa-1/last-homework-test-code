@@ -15,10 +15,10 @@ public class CreateForm {
   public CreateForm() {
   }
 
+  @Positive     //数値が正でないとエラー
+  private int id;
+
   @NotBlank
   @Length(max = 20)
   private String name;
-
-  @Positive     //数値が正でないとエラー
-  private int id;
 }

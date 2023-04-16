@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public void updateName(int id, UpdateForm form) {
+  public void updateUser(int id, UpdateForm form) {
 
     //指定されたidが存在しない場合ResourceNotFoundExceptionを投げる
     Optional<User> user = userMapper.findById(id);
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
     //formの各要素がnullでない場合は更新処理を行う
     if (Objects.nonNull(form.getName())) {
-      userMapper.updateName(id, form.getName());
+      userMapper.updateUser(id, form.getName());
     }
   }
 
@@ -56,6 +56,6 @@ public class UserServiceImpl implements UserService {
     Optional<User> user = userMapper.findById(id);
     user.orElseThrow(() -> new ResourceNotFoundException("resource not found"));
 
-    userMapper.deleteName(id);
+    userMapper.deleteUser(id);
   }
 }

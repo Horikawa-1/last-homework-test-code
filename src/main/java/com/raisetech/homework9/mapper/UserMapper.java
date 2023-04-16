@@ -25,8 +25,8 @@ public interface UserMapper {     // classではなくinterfaceで定義する
   void insertUser(User name);
 
   @Update("UPDATE names SET name=#{name} WHERE id = #{id}")
-  void updateName(int id, String name);
+  void updateUser(int id, String name);
 
   @Delete("DELETE FROM names WHERE id = #{id}")
-  void deleteName(int id);
+  void deleteUser(int id);
 }
